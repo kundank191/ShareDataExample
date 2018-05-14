@@ -6,10 +6,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.android.examplesharedata.R;
 import com.example.android.examplesharedata.ViewModels.MyViewModel;
@@ -21,10 +24,18 @@ import butterknife.ButterKnife;
  * Created by Kundan on 14-05-2018.
  */
 public class SecondPageFragment extends Fragment {
+
     @BindView(R.id.fab_previous_secondPage)
     FloatingActionButton previousButton;
     @BindView(R.id.fab_complete_SecondPage)
     FloatingActionButton completeButton;
+    @BindView(R.id.et_lastName)
+    EditText editTextLastName;
+    @BindView(R.id.ip_last_name)
+    TextInputLayout textInputLayout;
+    @BindView(R.id.tv_firstName)
+    TextView textView;
+
     private onPreviousClicked mPreviousListener;
     private onCompletedClicked mCompleteListener;
     //View Model variable

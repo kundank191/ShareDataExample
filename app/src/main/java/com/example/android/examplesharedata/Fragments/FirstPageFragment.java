@@ -6,10 +6,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.android.examplesharedata.R;
 import com.example.android.examplesharedata.ViewModels.MyViewModel;
@@ -24,6 +27,10 @@ public class FirstPageFragment extends Fragment {
 
     @BindView(R.id.fab_next_firstPage)
     FloatingActionButton nextButton;
+    @BindView(R.id.et_firstName)
+    EditText editTextFirstName;
+    @BindView(R.id.ip_first_name)
+    TextInputLayout textInputLayout;
     private onNextClicked mNextListener;
     //View model Variable
     private MyViewModel viewModel;
@@ -59,7 +66,12 @@ public class FirstPageFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mNextListener.onFirstPageNextClickListener();
+                if(TextUtils.isEmpty(editTextFirstName.getText().toString())){
+                    textInputLayout.setError("Please Enter First Name");
+                } else {
+                    viewModel.setFirstName(editTextFirstName.getText().toString());
+                    mNextListener.onFirstPageNextClickListener();
+                }
             }
         });
     }
