@@ -3,4 +3,6 @@
 
     <string name="default_first_name">Anony</string>
     <string name="default_last_name">mous</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
 </resources>
