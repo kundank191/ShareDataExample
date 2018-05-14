@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,7 @@ public class SecondPageFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_second_page,container,false);
         ButterKnife.bind(this,rootView);
         setupFABS();
+        textView.setText(String.format("Hello %s", viewModel.getFirstName()));
         return rootView;
     }
 
@@ -87,7 +89,13 @@ public class SecondPageFragment extends Fragment {
         completeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCompleteListener.onSecondPageCompleteClickListener();
+                if(TextUtils.isEmpty(editTextLastName.getText().toString())){
+                    textInputLayout.setError("Please Enter Last Name");
+                } else {
+                    textInputLayout.setErrorEnabled(false);
+                    viewModel.setSecondName(editTextLastName.getText().toString());
+                    mCompleteListener.onSecondPageCompleteClickListener();
+                }
             }
         });
     }
