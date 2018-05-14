@@ -72,6 +72,12 @@ public class SecondPageFragment extends Fragment {
         ButterKnife.bind(this,rootView);
         setupFABS();
         textView.setText(String.format("Hello %s", viewModel.getFirstName()));
+
+        //if second fragment returned with name saved to first fragment then again to second fragment
+        if(!viewModel.getSecondName().equals("mous")){
+            editTextLastName.setText(viewModel.getSecondName());
+        }
+
         return rootView;
     }
 

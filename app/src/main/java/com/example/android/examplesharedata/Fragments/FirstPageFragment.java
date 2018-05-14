@@ -59,6 +59,12 @@ public class FirstPageFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_first_page,container,false);
         ButterKnife.bind(this,rootView);
         setupFAB();
+
+        //If this fragment is called from second fragment
+        if(!viewModel.getFirstName().equals("Anony")){
+            editTextFirstName.setText(viewModel.getFirstName());
+        }
+
         return rootView;
     }
 
