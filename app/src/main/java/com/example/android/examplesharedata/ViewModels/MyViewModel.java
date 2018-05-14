@@ -7,4 +7,22 @@ import android.arch.lifecycle.ViewModel;
  */
 public class MyViewModel extends ViewModel {
 
+    private String firstName = "Anony";
+    private String secondName = "mous";
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
 }

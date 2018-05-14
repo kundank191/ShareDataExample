@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements FirstPageFragment
                                                                 ,SecondPageFragment.onCompletedClicked{
 
     FragmentManager mFragmentManager;
+    //View model variable declared
     private MyViewModel viewModel;
 
     @Override
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements FirstPageFragment
         }
     }
 
+    /**
+     * When in the first page next button is clicked then , the second page replaces it
+     * also checks if the edit text is empty or not
+     */
     @Override
     public void onFirstPageNextClickListener() {
         mFragmentManager.beginTransaction()
@@ -40,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements FirstPageFragment
                         .commit();
     }
 
+    /**
+     * When in the second page the previous button is clicked the first page replaces it
+     */
     @Override
     public void onSecondPagePreviousClickListener() {
         mFragmentManager.beginTransaction()
@@ -48,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements FirstPageFragment
 
     }
 
+    /**
+     * When in the second page complete button is clicked then A Toast is shown
+     * also checks of the edit text is empty or not
+     */
     @Override
     public void onSecondPageCompleteClickListener() {
         Toast.makeText(this,"Form Complete",Toast.LENGTH_SHORT).show();

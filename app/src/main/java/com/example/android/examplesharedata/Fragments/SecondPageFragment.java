@@ -1,15 +1,18 @@
 package com.example.android.examplesharedata.Fragments;
 
 import android.app.Fragment;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.examplesharedata.R;
+import com.example.android.examplesharedata.ViewModels.MyViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +27,8 @@ public class SecondPageFragment extends Fragment {
     FloatingActionButton completeButton;
     private onPreviousClicked mPreviousListener;
     private onCompletedClicked mCompleteListener;
+    //View Model variable
+    private MyViewModel viewModel;
 
     @Override
     public void onAttach(Context context) {
@@ -44,6 +49,8 @@ public class SecondPageFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Initializing view model
+        viewModel = ViewModelProviders.of((FragmentActivity) getActivity()).get(MyViewModel.class);
     }
 
     @Nullable
